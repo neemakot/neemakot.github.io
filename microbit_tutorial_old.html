@@ -16,8 +16,6 @@
             --code-bg: #1e1e2e;
             --zone-bg: #fff7ed;
             --zone-border: #f97316;
-            --ext-bg: #f0fdf4;
-            --ext-border: #22c55e;
         }
 
         * {
@@ -118,43 +116,6 @@
             margin-bottom: 15px;
         }
 
-        .rover-insight {
-            background-color: #f1f5f9;
-            border-left: 4px solid #64748b;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 0 8px 8px 0;
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .rover-thumb {
-            width: 120px;
-            height: 120px;
-            background-color: #cbd5e1;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            color: #475569;
-            border-radius: 6px;
-            flex-shrink: 0;
-            border: 2px dashed #94a3b8;
-        }
-
-        .diagram-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .diagram-img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
         .code-container {
             position: relative;
             margin: 15px 0;
@@ -201,22 +162,6 @@
             display: flex;
             align-items: center;
             gap: 5px;
-        }
-
-        .extension-box {
-            background-color: var(--ext-bg);
-            border: 2px solid var(--ext-border);
-            padding: 20px;
-            margin: 30px 0;
-            border-radius: 12px;
-        }
-
-        .extension-box h3 {
-            color: #166534;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .alert-box {
@@ -284,40 +229,30 @@
 
         <div class="step">
             <h2><span class="step-number">1</span> Your Mission Briefing 🛰️</h2>
-            <p>Today we are taking command of a deep space exploration rover. Deep space is a dangerous place—asteroids can strike the vehicle, environmental conditions can strain the system, and cyber attacks might try to mess with our steering controls.</p>
-            <p style="margin-top: 10px;">To protect our spacecraft, your instructor has loaded a <strong>Smart AI Shield model</strong> onto the laptop server. This AI model has studied real space data to learn exactly how a healthy rover sounds, moves, and responds. Your mission is to program your handheld micro:bit controller, feed data to the server, and see if your commands can slip past the AI's smart defenses.</p>
-
-            <div class="rover-insight">
-<!--                <div class="rover-thumb">-->
-                    <img src="assets/NASA_Mars_Rover.jpg"
- alt="NASA Mars Opportunity Rover" style="width: 140px; height: auto; border-radius: 6px; flex-shrink: 0; border: 1px solid #cbd5e1;">
-<!--                </div>-->
-                <div>
-                    <h4>🚀 Real-World Engineering Insight</h4>
-                    <p>In space environments, handling physical stress is critical. NASA's famous <strong>Opportunity Rover</strong> landed on Mars in 2004. It was originally built to last 90 days but survived for nearly 15 years! It was finally decommissioned in 2018 after a colossal planetary dust storm completely blocked its solar panels. <a href="https://www.nasa.gov/mission_pages/mer/index.html" target="_blank">Read more about Opportunity's final mission on NASA's website</a>.</p>
-                </div>
-            </div>
+            <p>Today we are taking command of a deep space exploration rover. Deep space is a dangerous place - asteroids can strike the rover, the environment can damage the craft, cyber-adversaries may manipulate our steering controls.</p>
+            <p style="margin-top: 10px;">To protect our spacecraft, your instructor has loaded a <strong>Smart AI Shield model</strong> onto the main laptop server. This AI model has studied real space data to learn exactly how a healthy rover sounds, moves and responds. Your mission is to program your handheld micro:bit controller, feed data to the server, and see if your commands can slip past the AI's smart defenses.</p>
         </div>
 
         <div class="step">
-            <h2><span class="step-number">2</span> How the Game Works (The DJ Mixing Deck Analogy) 🎛️</h2>
-            <p>Don't worry about the complex code running hidden away on the server—think of your micro:bit as a DJ soundboard. You don't need to know how every single internal chip is soldered together, you just need to slide the right dials!</p>
-            <p style="margin-top: 10px;">Your micro:bit controller will map live physics directly to two main server settings:</p>
+            <h2><span class="step-number">2</span> How the Game Works (The DJ Mixing Desk Analogy) 🎛️</h2>
+            <p>Don't worry about the massive, hidden code blocks running on the server — think of your micro:bit as a DJ soundboard. You don't need to know how every single internal chip is soldered together, you just need to mix/manoeuvre the dials!</p>
+            <p style="margin-top: 10px;">Your micro:bit controller will map live physics directly to 2 main network parameters:</p>
             <ol>
-                <li><strong>The Tilt Factor:</strong> Moving or tilting your micro:bit changes its G-force (a measure of acceleration or sudden movement). This is detected by the micro:bit's internal sensor, simulating structural stress or extreme terrain forces acting on the rover.</li>
-                <li><strong>Button A:</strong> Pressing this button triggers a simulated hack command, trying to slip a bypass signal past the AI.</li>
+                <li><strong>The Tilt Factor (The Volume Dial):</strong> Shaking or tilting your micro:bit changes the gravitational force (acceleration / sudden movement) acting on it.
+                    This is measured by the micro:bit's accelerometer - changes in these movements simulate a thread to the rover.</li>
+                <li><strong>Button A (The Exploit Flag):</strong> Pressing this button updates a true/false status variable, signaling a sudden command-line override data injection.</li>
             </ol>
         </div>
 
         <div class="step">
             <h2><span class="step-number">3</span> Step 1: Programming Your Rover Controller 🕹️</h2>
-            <p>Copy the code below and paste it completely into your micro:bit Python editor window. Look closely at the highlighted <strong>CHALLENGE ZONE</strong>—this is where you will tweak the logic rules!</p>
+            <p>Copy the code layout below and paste it completely into your micro:bit Python editor window. Look closely at the highlighted <strong>CHALLENGE ZONE</strong>—this is where you will tweak the logic rules!</p>
 
             <div class="code-container">
                 <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
                 <pre><code>from microbit import *
 
-# Connects your micro:bit to the laptop server
+# Connects your micro:bit transmission line to the server network link
 uart.init(bits_per_second=115200)
 
 # Dashboard boot-up sequence animation
@@ -330,32 +265,32 @@ while True:
     # Measures how far you roll the board left or right
     raw_tilt = accelerometer.get_x()
     stress_factor = raw_tilt / 1000.0
-
+    
     # 🛠️ ========================================================
-    # 🔥 CHALLENGE ZONE: WRITE YOUR ATTACK RULES
+    # 🔥 CHALLENGE ZONE: WRITE YOUR PAYLOAD RULES
     # ========================================================
-    # Objective: Switch 'is_hacking' from "False" to "True" when Button A is pressed!
+    # Objective: Toggle 'is_hacking' from "False" to "True" when Button A is pressed!
     is_hacking = "False"
-
+    
     if button_a.is_pressed():
         is_hacking = "True"  # This activates your cyber attack signal override!
-
+        
     # ========================================================
     # 📡 DATA TRANSMITTER BLOCK (Do Not Alter)
     # ========================================================
-    # Compiles and sends your parameters down the USB cable
+    # Compiles and shoots your parameters down the USB tether line
     payload = "Team_Alpha,{},{:.2f}\n".format(is_hacking, stress_factor)
     uart.write(payload)
-
-    # Check if the laptop's AI Shield returned an interception alert
+    
+    # Check if the central laptop's AI Shield returned an interception alert
     if uart.any():
         msg = str(uart.read(), 'UTF-8').strip()
-
+        
         if "ai_caught:True" in msg:
             display.show(Image.SKULL)  # 🚨 Intercepted! The AI model flagged your anomaly.
         else:
             display.show(Image.YES)     # ✅ Verification cleared! Operating safely.
-
+            
     sleep(200)</code></pre>
             </div>
 
@@ -367,26 +302,20 @@ while True:
 
         <div class="step">
             <h2><span class="step-number">4</span> Step 2: Running and Testing Your Code 🚀</h2>
-            <p>Ready to deploy your software? Follow this checklist to load your code onto the hardware:</p>
+            <p>Ready to deploy your custom software application? Go through this checklist to mount your firmware:</p>
             <ol>
-                <li>Hook your micro:bit up to the computer using the micro-USB cable.</li>
-                <li>Select the purple <strong>Connect</strong> button in your browser editor tool, highlight your device, and click pair.</li>
-                <li>Click the <strong>Flash</strong> button. Watch the light on the back of your board blink until it is finished.</li>
-                <li><strong>Play the Game:</strong> Leave the controller resting completely flat on your desk. You will see a green checkmark (✅). Now, tilt your board sharply to one side or press down on <strong>Button A</strong>. Can you trick the system into showing the security alarm (🚨 <strong>SKULL</strong>)? If so, your simulated anomaly successfully broke past normal boundaries!</li>
+                <li>Hook your micro:bit up to the computer workstation using a micro-USB communication cable.</li>
+                <li>Select the purple <strong>Connect</strong> button in your browser editor tool, highlight your device identifier, and click pair.</li>
+                <li>Click the <strong>Flash</strong> button. Watch the status LED on the underside of your board blink until complete.</li>
+                <li><strong>Play the Game:</strong> Leave the controller resting completely flat on your desk. You will see a clear verification mark (✅). Now, tilt your board sharply to one side or mash down on <strong>Button A</strong>. Can you trick the system into showing the security alarm (🚨 <strong>SKULL</strong>)? If so, your anomaly successfully broke out of normal operational thresholds!</li>
             </ol>
-
-            <div class="diagram-container">
-                <h4>🎮 Expected Controller Behavior</h4>
-                <img src="assets/controls_diagram.png" alt="Microbit input and output states diagram" class="diagram-img">
-            </div>
         </div>
-
 
         <div class="step">
             <h2><span class="step-number">5</span> Technical Reference: Data Layouts</h2>
-            <p>Here is a quick look at the exact information fields travelling back and forth between your controller and the server dashboard application.</p>
-
-            <h3>Data Sent to the Server</h3>
+            <p>Here is a quick look at the exact information fields travelling between your controllers and the backend dashboard app.</p>
+            
+            <h3>Inbound Data Packet (Sent from your micro:bit)</h3>
             <table>
                 <thead>
                     <tr>
@@ -414,7 +343,7 @@ while True:
                 </tbody>
             </table>
 
-            <h3>Data Received from the Server</h3>
+            <h3>Return Data Packet (Sent back by the central AI Server)</h3>
             <table>
                 <thead>
                     <tr>
@@ -445,29 +374,16 @@ while True:
 
         <div class="step">
             <h2><span class="step-number">6</span> Live Workshop Troubleshooting Guide</h2>
-
+            
             <div class="alert-box">
                 <strong>🚨 The micro:bit is flat, but it is showing a permanent SKULL image</strong>
-                <p style="margin-top: 5px;"><strong>Solution:</strong> The background link might be paused on your computer. Ask your group mentor to quickly restart the gateway script running on the master computer terminal to clear the active server buffer lines.</p>
+                <p style="margin-top: 5px;"><strong>Solution:</strong> The background adapter link might be paused on your workstation machine. Ask your group mentor to quickly restart the gateway script running on the master computer terminal to flush the active server buffer lines.</p>
             </div>
 
             <div class="alert-box" style="background-color: #fff7ed; border-color: #f97316; color: #7c2d12;">
                 <strong>⚠️ I am tilting the board and clicking buttons, but the grid stays completely blank</strong>
                 <p style="margin-top: 5px;"><strong>Solution:</strong> Your code could be missing a closing loop connection line. Re-verify that the entire <code>while True:</code> script was correctly highlighted and flashed down to the microcontroller from the top web browser compiler tool.</p>
             </div>
-        </div>
-
-       <div class="extension-box">
-            <h3>⚡ Alternative Engineering Challenge: Tricking the AI Shield</h3>
-            <p>Finished early and looking to push your software skills further? Let's take on a realistic data-hacking puzzle.</p>
-            <p style="margin-top: 10px;">Right now, when you tilt the micro:bit sideways, the <code>stress_factor</code> value jumps wildly. The server's AI notices this sudden change and immediately sends a SKULL to your board because the movement looks suspicious.</p>
-            <p style="margin-top: 10px;"><strong>Your Task:</strong> Modify the code inside your <code>while True:</code> loop to "mask" (hide) or smooth out the data before it gets sent to the laptop. Find a way to alter the math or change the code so that you can tilt the physical board as much as you want, but the data arriving at the server always looks completely flat and safe.</p>
-            <p style="margin-top: 10px;"><em>Stuck for ideas? Try these software engineering tactics:</em></p>
-            <ul style="margin-left: 20px; margin-top: 5px;">
-                <li><strong>The Override:</strong> Can you use an <code>if</code> statement to check if the tilt is too high, and force the <code>stress_factor</code> to stay at a safe, fixed number?</li>
-                <li><strong>The Blender:</strong> Can you change the formula for <code>stress_factor</code> (e.g., dividing it by a much larger number) so the sudden tilts are too tiny for the AI to notice?</li>
-                <li><strong>The Absolute Value:</strong> Research the Python <code>abs()</code> function. How could forcing the number to always be positive change how the AI sees your movement?</li>
-            </ul>
         </div>
 
     </div>
