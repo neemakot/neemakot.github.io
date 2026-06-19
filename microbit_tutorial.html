@@ -238,8 +238,9 @@
             <p>Don't worry about the massive, hidden code blocks running on the server — think of your micro:bit as a DJ soundboard. You don't need to know how every single internal chip is soldered together, you just need to mix/manoeuvre the dials!</p>
             <p style="margin-top: 10px;">Your micro:bit controller will map live physics directly to 2 main network parameters:</p>
             <ol>
-                <li><strong>The Tilt Factor (The Volume Dial):</strong> Shaking or tilting your hardware changes the G-Force variable, sending simulated structural strain numbers straight to the server.</li>
-                <li><strong>Button A (The Exploit Flag):</strong> Pressing this button updates a true/false status variable, signaling a sudden command-line override injection payload.</li>
+                <li><strong>The Tilt Factor (The Volume Dial):</strong> Shaking or tilting your micro:bit changes the gravitational force (acceleration / sudden movement) acting on it.
+                    This is measured by the micro:bit's accelerometer - changes in these movements simulate a thread to the rover.</li>
+                <li><strong>Button A (The Exploit Flag):</strong> Pressing this button updates a true/false status variable, signaling a sudden command-line override data injection.</li>
             </ol>
         </div>
 
@@ -252,7 +253,7 @@
                 <pre><code>from microbit import *
 
 # Connects your micro:bit transmission line to the server network link
-uart.init(baudrate=115200)
+uart.init(bits_per_second=115200)
 
 # Dashboard boot-up sequence animation
 display.show(Image.CHESSBOARD)
