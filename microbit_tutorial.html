@@ -317,45 +317,33 @@
                 <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
                 <pre><code>from microbit import *
 
-# Connects your micro:bit to the laptop server
-uart.init(bits_per_second=115200)
-
-# Dashboard boot-up sequence animation
-display.show(Image.CHESSBOARD)
-sleep(600)
-display.clear()
+# 🛠️ TASK 1: Change this to your actual team name! (No spaces)
+TEAM_ID = "WRITE YOUR TEAM NAME HERE"
 
 while True:
-    # 📊 REGULAR SENSOR SYSTEM (Do Not Alter)
-    # Measures how far you roll the board left or right
-    raw_tilt = accelerometer.get_x()
-    stress_factor = raw_tilt / 1000.0
+    # Read the physical tilt of the micro:bit (-1024 to 1024)
+    # and divide by 500 to get a decimal number (approx -2.0 to 2.0)
+    x_tilt = accelerometer.get_x() / 500.0
 
-    # 🛠️ ========================================================
-    # 🔥 CHALLENGE ZONE: WRITE YOUR ATTACK RULES
-    # ========================================================
-    # Objective: Switch 'is_hacking' from "False" to "True" when Button A is pressed!
-    is_hacking = "False"
+    # By default, we are just driving normally
+    attack_mode = "false"
+    mod_value = x_tilt
 
+    # 🚨 HACK TRIGGER: If you hold down Button A, activate the exploit!
     if button_a.is_pressed():
-        is_hacking = "True"  # This activates your cyber attack signal override!
+        attack_mode = "true"
 
-    # ========================================================
-    # 📡 DATA TRANSMITTER BLOCK (Do Not Alter)
-    # ========================================================
-    # Compiles and sends your parameters down the USB cable
-    payload = "Team_Alpha,{},{:.2f}\n".format(is_hacking, stress_factor)
-    uart.write(payload)
+        # 🛠️ TASK 2: THIS IS YOUR HACKING ZONE!
+        # Right now, it just sends your normal tilt.
+        # Change this math to tweak your number and find the 1.25 sweet spot!
+        # Examples to try: x_tilt * 1.5  OR  x_tilt + 0.5
+        mod_value = x_tilt * 1.0
 
-    # Check if the laptop's AI Shield returned an interception alert
-    if uart.any():
-        msg = str(uart.read(), 'UTF-8').strip()
+    # Send the data down the USB cable to the computer gateway
+    # Format required by server: TeamName,AttackTrueOrFalse,NumberValue
+    print(TEAM_ID + "," + attack_mode + "," + str(mod_value))
 
-        if "ai_caught:True" in msg:
-            display.show(Image.SKULL)  # 🚨 Intercepted! The AI model flagged your anomaly.
-        else:
-            display.show(Image.YES)     # ✅ Verification cleared! Operating safely.
-
+    # Wait 200 milliseconds (0.2 seconds) before sending the next update
     sleep(200)</code></pre>
             </div>
 
