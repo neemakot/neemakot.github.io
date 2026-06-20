@@ -316,34 +316,33 @@
             <div class="code-container">
                 <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
                 <pre><code>from microbit import *
+import uart
 
 # 🛠️ TASK 1: Change this to your actual team name! (No spaces)
 TEAM_ID = "WRITE YOUR TEAM NAME HERE"
 
+# ✅ IMPORTANT: Align serial output for Web Serial gateway
+uart.init(baudrate=115200)
+
 while True:
-    # Read the physical tilt of the micro:bit (-1024 to 1024)
-    # and divide by 500 to get a decimal number (approx -2.0 to 2.0)
+    # Read tilt (-1024 to 1024 → scaled to ~-2 to 2)
     x_tilt = accelerometer.get_x() / 500.0
 
-    # By default, we are just driving normally
+    # Default state
     attack_mode = "false"
     mod_value = x_tilt
 
-    # 🚨 HACK TRIGGER: If you hold down Button A, activate the exploit!
+    # 🚨 Attack mode (hold Button A)
     if button_a.is_pressed():
         attack_mode = "true"
-
-        # 🛠️ TASK 2: THIS IS YOUR HACKING ZONE!
-        # Right now, it just sends your normal tilt.
-        # Change this math to tweak your number and find the 1.25 sweet spot!
-        # Examples to try: x_tilt * 1.5  OR  x_tilt + 0.5
         mod_value = x_tilt * 1.0
 
-    # Send the data down the USB cable to the computer gateway
-    # Format required by server: TeamName,AttackTrueOrFalse,NumberValue
-    print(TEAM_ID + "," + attack_mode + "," + str(mod_value))
+    # ✅ Ensure clean CSV line + newline termination
+    line = TEAM_ID + "," + attack_mode + "," + str(mod_value) + "\n"
 
-    # Wait 200 milliseconds (0.2 seconds) before sending the next update
+    # Send over USB serial
+    uart.write(line)
+
     sleep(200)</code></pre>
             </div>
 
