@@ -357,7 +357,7 @@ background-color: #fff7ed; /* Soft, warm cream background */
 # =========================
 
 # Create a name for your team!
-# Remove the \# at the beginning of the line below and replace the placeholder name with your own team name!
+# Remove the hash at the beginning of the line below, and replace the placeholder name with your own team name!
 # TEAM_ID = "REPLACE_WITH_YOUR_TEAM_NAME"
 
 uart.init(baudrate=115200)
@@ -403,7 +403,7 @@ while True:
     last_b = b_pressed
 
     # =========================
-    # BIDIRECTIONAL FEEDBACK
+    # TWO-WAY FEEDBACK
     # =========================
     if uart.any():
         feedback = uart.readline().decode("utf-8", errors="ignore").strip()
