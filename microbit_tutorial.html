@@ -398,7 +398,7 @@ while True:
                 <li>Watch the light on the back of your board to finish blinking — this means your code is installed.</li>
             </ol>
 
-            <h2><span class="step-number">4</span> Step 3: Connect to the live system (Gateway setup) </h2>
+            <h2><span class="step-number">5</span> Step 3: Connect to the live system (Gateway setup) </h2>
             <p>Now you need to connect your micro:bit to the AI telemetry system:</p>
             <ol>
                 <li>Open <a href="https://rover-ai-shield-22216060250.europe-west2.run.app/gateway">this page</a> in Chrome or Edge.</li>
@@ -413,33 +413,35 @@ while True:
             </ol>
             <p style="margin-top: 10px;">This means your micro:bit is successfully sending data to the AI system.</p>
 
-            <div class="diagram-container">
-                <h4>🎮 Expected Controller Behavior</h4>
-                <img src="assets/controls_diagram.png" alt="Microbit input and output states diagram" class="diagram-img">
-            </div>
+
         </div>
 
         <div class="step">
-            <h2><span class="step-number">6</span> How to Play the System (IMPORTANT) 🎮</h2>
-            <p>Your micro:bit has two distinct operational control modes:</p>
-            <ul style="margin-top: 10px;">
-                <li><strong>🅰 Button A = ATTACK MODE</strong>
-                    <ul>
-                        <li>Sends an “exploit attempt” to the AI system.</li>
-                        <li>Counts as a hacking action on the leaderboard dashboard.</li>
-                        <li>High point reward if successful, but carries a high risk of detection.</li>
-                        <li><em>👉 Example: trying to “trick” the on-board AI security shield.</em></li>
-                    </ul>
-                </li>
-                <li style="margin-top: 10px;"><strong>🅱 Button B = NORMAL MODE</strong>
-                    <ul>
-                        <li>Sends standard movement telemetry data.</li>
-                        <li>Used for baseline exploration, testing, and debugging.</li>
-                        <li>No hacking attempt recorded by the telemetry filters.</li>
-                        <li><em>👉 Example: simulated safe rover driving behavior.</em></li>
-                    </ul>
-                </li>
-            </ul>
+            <h2><span class="step-number">6</span> How to Play 🎮</h2>
+<!--            <p></p>-->
+            <div class="diagram-container">
+                <h4>Your micro:bit has two distinct operational control modes. </h4>
+                <img src="assets/how_to_play.png" alt="<strong>🅰 Button A = ATTACK MODE</strong> and <strong>🅱 Button B = NORMAL MODE</strong>" class="diagram-img">
+            </div>
+
+<!--            <ul style="margin-top: 10px;">-->
+<!--                <li><strong>🅰 Button A = ATTACK MODE</strong>-->
+<!--                    <ul>-->
+<!--                        <li>Sends an “exploit attempt” to the AI system.</li>-->
+<!--                        <li>Counts as a hacking action on the leaderboard dashboard.</li>-->
+<!--                        <li>High point reward if successful, but carries a high risk of detection.</li>-->
+<!--                        <li><em>👉 Example: trying to “trick” the on-board AI security shield.</em></li>-->
+<!--                    </ul>-->
+<!--                </li>-->
+<!--                <li style="margin-top: 10px;"><strong>🅱 Button B = NORMAL MODE</strong>-->
+<!--                    <ul>-->
+<!--                        <li>Sends standard movement telemetry data.</li>-->
+<!--                        <li>Used for baseline exploration, testing, and debugging.</li>-->
+<!--                        <li>No hacking attempt recorded by the telemetry filters.</li>-->
+<!--                        <li><em>👉 Example: simulated safe rover driving behaviour.</em></li>-->
+<!--                    </ul>-->
+<!--                </li>-->
+<!--            </ul>-->
 
         </div>
 
@@ -459,7 +461,7 @@ while True:
                 <p style="margin-top: 5px;">After each data transmission action, check your physical micro:bit board screen for instantaneous status flags:</p>
                 <ul style="margin-top: 5px; margin-left: 20px;">
                     <li><strong>✅ YES (Checkmark):</strong> Safe configuration / accepted input structure.</li>
-                    <li><strong>💀 SKULL:</strong> The AI detected unusual telemetry behavior. The exploit attempt was completely blocked!</li>
+                    <li><strong>💀 SKULL:</strong> The AI detected unusual telemetry behaviour. The exploit attempt was completely blocked!</li>
                 </ul>
             </div>
             <div class="challenge-box" style="background-color: #fff7ed; border-left: 4px solid #f97316; padding: 15px; margin-top: 20px;">
