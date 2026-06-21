@@ -310,7 +310,7 @@ background-color: #fff7ed; /* Soft, warm cream background */
         </div>
 
         <div class="step">
-            <h2><span class="step-number">1</span> Your Mission Briefing 🛰️</h2>
+            <h2> Your Mission Briefing 🛰️</h2>
             <p>Today we are taking command of a deep space exploration rover. Deep space is a dangerous place—asteroids can strike the vehicle, environmental conditions can strain the system, and cyber attacks might try to mess with our steering controls.</p>
             <p style="margin-top: 10px;">
                 Your instructor has created a <strong>Smart AI Shield</strong> to protect our spacecraft.
@@ -334,19 +334,19 @@ background-color: #fff7ed; /* Soft, warm cream background */
             </div>
         </div>
 
-        <div class="step">
-            <h2><span class="step-number">2</span> How the Game Works (The DJ Mixing Deck Analogy) 🎛️</h2>
-            <p>Don't worry about the complex code running hidden away on the server—think of your micro:bit as a DJ soundboard. You don't need to know how every single internal chip is soldered together, you just need to slide the right dials!</p>
-            <p style="margin-top: 10px;">Your micro:bit controller will map live physics directly to two main server settings:</p>
-            <ol>
-                <li><strong>The Tilt Factor:</strong> Moving or tilting your micro:bit changes its G-force (a measure of acceleration or sudden movement). This is detected by the micro:bit's internal sensor, simulating structural stress or extreme terrain forces acting on the rover.</li>
-                <li><strong>Button A:</strong> Pressing this button triggers a simulated hack command, trying to slip a bypass signal past the AI.</li>
-            </ol>
-        </div>
+<!--        <div class="step">-->
+<!--            <h2><span class="step-number">2</span> How the Game Works (The DJ Mixing Deck Analogy) 🎛️</h2>-->
+<!--            <p>Don't worry about the complex code running hidden away on the server—think of your micro:bit as a DJ soundboard. You don't need to know how every single internal chip is soldered together, you just need to slide the right dials!</p>-->
+<!--            <p style="margin-top: 10px;">Your micro:bit controller will map live physics directly to two main server settings:</p>-->
+<!--            <ol>-->
+<!--                <li><strong>The Tilt Factor:</strong> Moving or tilting your micro:bit changes its G-force (a measure of acceleration or sudden movement). This is detected by the micro:bit's internal sensor, simulating structural stress or extreme terrain forces acting on the rover.</li>-->
+<!--                <li><strong>Button A:</strong> Pressing this button triggers a simulated hack command, trying to slip a bypass signal past the AI.</li>-->
+<!--            </ol>-->
+<!--        </div>-->
 
         <div class="step">
-            <h2><span class="step-number">3</span> Step 1: Programming Your Rover Controller 🕹️</h2>
-            <p>Copy the code below and paste it completely into your micro:bit Python editor window.</p>
+            <h2><span class="step-number">1</span> Programming Your Rover Controller 🕹️</h2>
+            <p>Copy the code below and paste it completely into your micro:bit Python <a href="https://python.microbit.org/v/3">editor window</a>.</p>
 
             <div class="code-container">
                 <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
@@ -357,7 +357,8 @@ background-color: #fff7ed; /* Soft, warm cream background */
 # =========================
 
 # Create a name for your team!
-TEAM_ID = "REPLACE_WITH_YOUR_TEAM_NAME"
+# Remove the \# at the beginning of the line below and replace the placeholder name with your own team name!
+# TEAM_ID = "REPLACE_WITH_YOUR_TEAM_NAME"
 
 uart.init(baudrate=115200)
 
@@ -416,46 +417,48 @@ while True:
     sleep(50)</code></pre>
             </div>
 
-            <div class="challenge-box">
-                <h4>💥 Exploration Challenge:</h4>
-                <p>Which range of values for mod_value result in the highest scores (the safe zone)? Which mod_value numbers cause lockouts and alarms to go off (the danger zone)?</p>
-            </div>
+
         </div>
 
         <div class="step">
-            <h2><span class="step-number">4</span> Step 2: Load your code onto the micro:bit 🚀</h2>
+            <h2><span class="step-number">2</span>Load your code onto the micro:bit 🚀</h2>
             <p>Ready to deploy your software? Follow this checklist to load your code onto the hardware:</p>
             <ol>
                 <li>Hook your micro:bit up to the computer using the micro-USB cable.</li>
                 <li>Open the MicroPython editor in your browser (use Chrome or Edge).</li>
                 <li>Click the purple <strong>Connect</strong> button in your browser editor tool, highlight your device, and click pair.</li>
-                <li>Click the <strong>Flash</strong> button.</li>
+<!--                <li>Click the <strong>Flash</strong> button.</li>-->
                 <li>Watch the light on the back of your board to finish blinking — this means your code is installed.</li>
             </ol>
+            <br>
 
-            <h2><span class="step-number">5</span> Step 3: Connect to the live system (Gateway setup) </h2>
-            <p>Now you need to connect your micro:bit to the AI telemetry system:</p>
+            <h2><span class="step-number">3</span>Connect to the live system (Gateway setup) </h2>
+            <p>Now you need to connect your micro:bit to the AI system:</p>
             <ol>
                 <li>Open <a href="https://rover-ai-shield-22216060250.europe-west2.run.app/gateway">this page</a> in Chrome or Edge.</li>
                 <li>Click the button: <strong>"Connect micro:bit"</strong>.</li>
                 <li>Select your device when prompted.</li>
                 <li>You should now see:
                     <ul>
-                        <li>“Data link active”</li>
-                        <li>Live telemetry messages appearing in the log window</li>
+                        <li><strong>"Data link active"</strong></li>
+                        <li>Live input and output messages appearing in the log window</li>
                     </ul>
                 </li>
             </ol>
             <p style="margin-top: 10px;">This means your micro:bit is successfully sending data to the AI system.</p>
+            <div class="diagram-container">
+<!--                <h4>Your micro:bit has two distinct operational control modes: </h4>-->
+                <img src="assets/gateway_messages.png" alt="" class="diagram-img">
+            </div>
 
 
         </div>
 
         <div class="step">
-            <h2><span class="step-number">6</span> How to Play 🎮</h2>
+            <h2><span class="step-number">4</span> How to Play 🎮</h2>
 <!--            <p></p>-->
             <div class="diagram-container">
-                <h4>Your micro:bit has two distinct operational control modes. </h4>
+                <h4>Your micro:bit has two distinct operational control modes: </h4>
                 <img src="assets/how_to_play.png" alt="<strong>🅰 Button A = ATTACK MODE</strong> and <strong>🅱 Button B = NORMAL MODE</strong>" class="diagram-img">
             </div>
 
@@ -481,22 +484,22 @@ while True:
         </div>
 
         <div class="step">
-            <h2><span class="step-number">7</span> Play the Challenge 🧪</h2>
-            <p>Start interacting with the telemetry matrix and see how the AI Shield updates:</p>
+            <h2><span class="step-number">5</span> Play the Challenge 🎮</h2>
+            <p>Start interacting with the application and see how the AI Shield updates:</p>
             <ol>
                 <li>Leave the micro:bit hardware completely flat on your work surface.</li>
                 <li>Press <strong>Button B</strong> to send standard, safe movement data.</li>
                 <li>Tilt the physical micro:bit sideways and observe how the system dynamic metrics react.</li>
-                <li>Press <strong>Button A</strong> while tilted to attempt an automated telemetry "hack".</li>
+                <li>Press <strong>Button A</strong> while tilted to attempt an automated "hack" of the AI Shield.</li>
             </ol>
-            <p style="margin-top: 10px;">Watch carefully: The AI may reward your team with high scores, or it will detect your anomaly injection and trigger a security shield warning block!</p>
+            <p style="margin-top: 10px;">Watch carefully: The AI may reward your team with high scores, or it could detect your hack and trigger a security shield warning block!</p>
 
             <div class="alert-box" style="background-color: #fef2f2; border-left: 4px solid #dc2626; color: #991b1b; margin-top: 20px; padding: 15px;">
                 <strong style="font-size: 1.1rem;">💀 AI Feedback System</strong>
                 <p style="margin-top: 5px;">After each data transmission action, check your physical micro:bit board screen for instantaneous status flags:</p>
                 <ul style="margin-top: 5px; margin-left: 20px;">
-                    <li><strong>✅ YES (Checkmark):</strong> Safe configuration / accepted input structure.</li>
-                    <li><strong>💀 SKULL:</strong> The AI detected unusual telemetry behaviour. The exploit attempt was completely blocked!</li>
+                    <li><strong>✅ YES (Checkmark):</strong> Safe / accepted input.</li>
+                    <li><strong>💀 SKULL:</strong> The AI detected unusual behaviour. The hack attempt was completely blocked! You're frozen out!</li>
                 </ul>
             </div>
             <div class="challenge-box" style="background-color: #fff7ed; border-left: 4px solid #f97316; padding: 15px; margin-top: 20px;">
@@ -506,22 +509,26 @@ while True:
         </div>
 
         <div class="step">
-            <h2><span class="step-number">8</span> Check Your Score 📊</h2>
+            <h2><span class="step-number">6</span> Check Your Score 📊</h2>
             <p>You can track your mission progress live on the central classroom monitor display or locally by viewing the app dashboard:</p>
             <p style="margin-top: 10px; margin-bottom: 10px;">
                 👉 <strong><a href="https://rover-ai-shield-22216060250.europe-west2.run.app" target="_blank">Open Main App Leaderboard (/)</a></strong>
             </p>
-            <p>On this main application monitor screen, you will watch live updates for:</p>
+            <p>On this main app monitor screen, you will watch live updates for:</p>
             <ul style="margin-top: 5px;">
                 <li>🏆 <strong>Live Team Scores:</strong> Real-time ranked hacking attempts!</li>
                 <li>⚠️ <strong>Alarm Levels:</strong> Real-time track of how suspicious the AI shield is of your team.</li>
                 <li>🚫 <strong>Lockouts:</strong> Active freeze penalty timers if the automated system blocks you for rules violations.</li>
                 <li>📈 <strong>Real-time Ranking Changes:</strong> Watch rows flash and swap places automatically as scores shift!</li>
             </ul>
+            <div class="challenge-box">
+                <h4>💥 Exploration Challenge:</h4>
+                <p>Which range of values for mod_value result in the highest scores (the safe zone)? Which mod_value numbers cause lockouts and alarms to go off (the danger zone)?</p>
+            </div>
         </div>
 
         <div class="step">
-            <h2><span class="step-number">6</span> Live Workshop Troubleshooting Guide</h2>
+            <h2>Live Workshop Troubleshooting Guide</h2>
 
             <div class="alert-box">
                 <strong>🚨 The micro:bit is flat, but it is showing a permanent SKULL image</strong>
@@ -534,18 +541,18 @@ while True:
             </div>
         </div>
 
-       <div class="extension-box">
-            <h3>⚡ Alternative Engineering Challenge: Tricking the AI Shield</h3>
-            <p>Finished early and looking to push your software skills further? Let's take on a realistic data-hacking puzzle.</p>
-            <p style="margin-top: 10px;">Right now, when you tilt the micro:bit sideways, the <code>stress_factor</code> value jumps wildly. The server's AI notices this sudden change and immediately sends a SKULL to your board because the movement looks suspicious.</p>
-            <p style="margin-top: 10px;"><strong>Your Task:</strong> Modify the code inside your <code>while True:</code> loop to "mask" (hide) or smooth out the data before it gets sent to the laptop. Find a way to alter the math or change the code so that you can tilt the physical board as much as you want, but the data arriving at the server always looks completely flat and safe.</p>
-            <p style="margin-top: 10px;"><em>Stuck for ideas? Try these software engineering tactics:</em></p>
-            <ul style="margin-left: 20px; margin-top: 5px;">
-                <li><strong>The Override:</strong> Can you use an <code>if</code> statement to check if the tilt is too high, and force the <code>stress_factor</code> to stay at a safe, fixed number?</li>
-                <li><strong>The Blender:</strong> Can you change the formula for <code>stress_factor</code> (e.g., dividing it by a much larger number) so the sudden tilts are too tiny for the AI to notice?</li>
-                <li><strong>The Absolute Value:</strong> Research the Python <code>abs()</code> function. How could forcing the number to always be positive change how the AI sees your movement?</li>
-            </ul>
-        </div>
+<!--       <div class="extension-box">-->
+<!--            <h3>⚡ Alternative Engineering Challenge: Tricking the AI Shield</h3>-->
+<!--            <p>Finished early and looking to push your software skills further? Let's take on a realistic data-hacking puzzle.</p>-->
+<!--            <p style="margin-top: 10px;">Right now, when you tilt the micro:bit sideways, the <code>stress_factor</code> value jumps wildly. The server's AI notices this sudden change and immediately sends a SKULL to your board because the movement looks suspicious.</p>-->
+<!--            <p style="margin-top: 10px;"><strong>Your Task:</strong> Modify the code inside your <code>while True:</code> loop to "mask" (hide) or smooth out the data before it gets sent to the laptop. Find a way to alter the math or change the code so that you can tilt the physical board as much as you want, but the data arriving at the server always looks completely flat and safe.</p>-->
+<!--            <p style="margin-top: 10px;"><em>Stuck for ideas? Try these software engineering tactics:</em></p>-->
+<!--            <ul style="margin-left: 20px; margin-top: 5px;">-->
+<!--                <li><strong>The Override:</strong> Can you use an <code>if</code> statement to check if the tilt is too high, and force the <code>stress_factor</code> to stay at a safe, fixed number?</li>-->
+<!--                <li><strong>The Blender:</strong> Can you change the formula for <code>stress_factor</code> (e.g., dividing it by a much larger number) so the sudden tilts are too tiny for the AI to notice?</li>-->
+<!--                <li><strong>The Absolute Value:</strong> Research the Python <code>abs()</code> function. How could forcing the number to always be positive change how the AI sees your movement?</li>-->
+<!--            </ul>-->
+<!--        </div>-->
 
     </div>
 
