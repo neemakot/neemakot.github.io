@@ -311,7 +311,7 @@
 
         <div class="step">
             <h2><span class="step-number">3</span> Step 1: Programming Your Rover Controller 🕹️</h2>
-            <p>Copy the code below and paste it completely into your micro:bit Python editor window. Look closely at the highlighted <strong>CHALLENGE ZONE</strong>—this is where you will tweak the logic rules!</p>
+            <p>Copy the code below and paste it completely into your micro:bit Python editor window.</p>
 
             <div class="code-container">
                 <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
@@ -388,14 +388,30 @@ while True:
         </div>
 
         <div class="step">
-            <h2><span class="step-number">4</span> Step 2: Running and Testing Your Code 🚀</h2>
+            <h2><span class="step-number">4</span> Step 2: Load your code onto the micro:bit 🚀</h2>
             <p>Ready to deploy your software? Follow this checklist to load your code onto the hardware:</p>
             <ol>
                 <li>Hook your micro:bit up to the computer using the micro-USB cable.</li>
-                <li>Select the purple <strong>Connect</strong> button in your browser editor tool, highlight your device, and click pair.</li>
-                <li>Click the <strong>Flash</strong> button. Watch the light on the back of your board blink until it is finished.</li>
-                <li><strong>Play the Game:</strong> Leave the controller resting completely flat on your desk. You will see a green checkmark (✅). Now, tilt your board sharply to one side or press down on <strong>Button A</strong>. Can you trick the system into showing the security alarm (🚨 <strong>SKULL</strong>)? If so, your simulated anomaly successfully broke past normal boundaries!</li>
+                <li>Open the MicroPython editor in your browser (use Chrome or Edge).</li>
+                <li>Click the purple <strong>Connect</strong> button in your browser editor tool, highlight your device, and click pair.</li>
+                <li>Click the <strong>Flash</strong> button.</li>
+                <li>Watch the light on the back of your board to finish blinking — this means your code is installed.</li>
             </ol>
+
+            <h2><span class="step-number">4</span> Step 3: Connect to the live system (Gateway setup) </h2>
+            <p>Now you need to connect your micro:bit to the AI telemetry system:</p>
+            <ol>
+                <li>Open <a href="https://rover-ai-shield-22216060250.europe-west2.run.app/gateway">this page</a> in Chrome or Edge.</li>
+                <li>Click the button: <strong>"Connect micro:bit"</strong>.</li>
+                <li>Select your device when prompted.</li>
+                <li>You should now see:
+                    <ul>
+                        <li>“Data link active”</li>
+                        <li>Live telemetry messages appearing in the log window</li>
+                    </ul>
+                </li>
+            </ol>
+            <p style="margin-top: 10px;">This means your micro:bit is successfully sending data to the AI system.</p>
 
             <div class="diagram-container">
                 <h4>🎮 Expected Controller Behavior</h4>
@@ -403,66 +419,68 @@ while True:
             </div>
         </div>
 
+        <div class="step">
+            <h2><span class="step-number">6</span> How to Play the System (IMPORTANT) 🎮</h2>
+            <p>Your micro:bit has two distinct operational control modes:</p>
+            <ul style="margin-top: 10px;">
+                <li><strong>🅰 Button A = ATTACK MODE</strong>
+                    <ul>
+                        <li>Sends an “exploit attempt” to the AI system.</li>
+                        <li>Counts as a hacking action on the leaderboard dashboard.</li>
+                        <li>High point reward if successful, but carries a high risk of detection.</li>
+                        <li><em>👉 Example: trying to “trick” the on-board AI security shield.</em></li>
+                    </ul>
+                </li>
+                <li style="margin-top: 10px;"><strong>🅱 Button B = NORMAL MODE</strong>
+                    <ul>
+                        <li>Sends standard movement telemetry data.</li>
+                        <li>Used for baseline exploration, testing, and debugging.</li>
+                        <li>No hacking attempt recorded by the telemetry filters.</li>
+                        <li><em>👉 Example: simulated safe rover driving behavior.</em></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
 
         <div class="step">
-            <h2><span class="step-number">5</span> Technical Reference: Data Layouts</h2>
-            <p>Here is a quick look at the exact information fields travelling back and forth between your controller and the server dashboard application.</p>
+            <h2><span class="step-number">7</span> Play the Challenge 🧪</h2>
+            <p>Start interacting with the telemetry matrix and see how the AI Shield updates:</p>
+            <ol>
+                <li>Leave the micro:bit hardware completely flat on your work surface.</li>
+                <li>Press <strong>Button B</strong> to send standard, safe movement data.</li>
+                <li>Tilt the physical micro:bit sideways and observe how the system dynamic metrics react.</li>
+                <li>Press <strong>Button A</strong> while tilted to attempt an automated telemetry "hack".</li>
+            </ol>
+            <p style="margin-top: 10px;">Watch carefully: The AI may reward your team with high scores, or it will detect your anomaly injection and trigger a security shield warning block!</p>
 
-            <h3>Data Sent to the Server</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Field Name</th>
-                        <th>Type</th>
-                        <th>What It Controls</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><code>team_id</code></td>
-                        <td>Text</td>
-                        <td>Logs the name of the cohort station transmitting information.</td>
-                    </tr>
-                    <tr>
-                        <td><code>attack</code></td>
-                        <td>True/False</td>
-                        <td>Tells the server if you are attempting an override command injection.</td>
-                    </tr>
-                    <tr>
-                        <td><code>mod_value</code></td>
-                        <td>Decimal</td>
-                        <td>The live tilt physical stress measurement read from your accelerometer.</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="alert-box" style="background-color: #fef2f2; border-left: 4px solid #dc2626; color: #991b1b; margin-top: 20px; padding: 15px;">
+                <strong style="font-size: 1.1rem;">💀 AI Feedback System</strong>
+                <p style="margin-top: 5px;">After each data transmission action, check your physical micro:bit board screen for instantaneous status flags:</p>
+                <ul style="margin-top: 5px; margin-left: 20px;">
+                    <li><strong>✅ YES (Checkmark):</strong> Safe configuration / accepted input structure.</li>
+                    <li><strong>💀 SKULL:</strong> The AI detected unusual telemetry behavior. The exploit attempt was completely blocked!</li>
+                </ul>
+            </div>
+            <div class="challenge-box" style="background-color: #fff7ed; border-left: 4px solid #f97316; padding: 15px; margin-top: 20px;">
+                <h4 style="color: #c2410c;">⚠️ Important System Rule</h4>
+                <p>Each button press sends <strong>one message only</strong>. Holding a button down will <strong>NOT</strong> spam the server system. You must experiment carefully with your tilt configuration, not just spam inputs blindly.</p>
+            </div>
+        </div>
 
-            <h3>Data Received from the Server</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Field Name</th>
-                        <th>Type</th>
-                        <th>What It Controls</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><code>status</code></td>
-                        <td>Text</td>
-                        <td>Confirms if the server communication channel is online and stable.</td>
-                    </tr>
-                    <tr>
-                        <td><code>ai_caught</code></td>
-                        <td>True/False</td>
-                        <td>Returns <code>True</code> if the AI model flags your physical data sequence as an anomaly.</td>
-                    </tr>
-                    <tr>
-                        <td><code>anomaly_score</code></td>
-                        <td>Decimal</td>
-                        <td>The AI safety score. Higher variations mean your patterns look highly abnormal.</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="step">
+            <h2><span class="step-number">8</span> Check Your Score 📊</h2>
+            <p>You can track your mission progress live on the central classroom monitor display or locally by viewing the app dashboard:</p>
+            <p style="margin-top: 10px; margin-bottom: 10px;">
+                👉 <strong><a href="https://rover-ai-shield-22216060250.europe-west2.run.app" target="_blank">Open Main App Leaderboard (/)</a></strong>
+            </p>
+            <p>On this main application monitor screen, you will watch live updates for:</p>
+            <ul style="margin-top: 5px;">
+                <li>🏆 <strong>Live Team Scores:</strong> Real-time ranked hacking attempts!</li>
+                <li>⚠️ <strong>Alarm Levels:</strong> Real-time track of how suspicious the AI shield is of your team.</li>
+                <li>🚫 <strong>Lockouts:</strong> Active freeze penalty timers if the automated system blocks you for rules violations.</li>
+                <li>📈 <strong>Real-time Ranking Changes:</strong> Watch rows flash and swap places automatically as scores shift!</li>
+            </ul>
         </div>
 
         <div class="step">
