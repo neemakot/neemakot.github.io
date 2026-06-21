@@ -316,34 +316,67 @@
             <div class="code-container">
                 <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
                 <pre><code>from microbit import *
-import uart
 
-# 🛠️ TASK 1: Change this to your actual team name! (No spaces)
-TEAM_ID = "WRITE YOUR TEAM NAME HERE"
+# =========================
+# CONFIG
+# =========================
+TEAM_ID = "YOUR_TEAM_NAME"
 
-# ✅ IMPORTANT: Align serial output for Web Serial gateway
 uart.init(baudrate=115200)
 
+# Prevent spam: only send once per button press
+last_a = False
+last_b = False
+
+
+def send_payload(is_attack, value):
+    msg = TEAM_ID + "," + str(is_attack).lower() + "," + str(value) + "\n"
+    print(msg)
+
+
 while True:
-    # Read tilt (-1024 to 1024 → scaled to ~-2 to 2)
     x_tilt = accelerometer.get_x() / 500.0
 
-    # Default state
-    attack_mode = "false"
-    mod_value = x_tilt
+    a_pressed = button_a.is_pressed()
+    b_pressed = button_b.is_pressed()
 
-    # 🚨 Attack mode (hold Button A)
-    if button_a.is_pressed():
-        attack_mode = "true"
+    # =========================
+    # ATTACK MODE (Button A)
+    # =========================
+    if a_pressed and not last_a:
+        attack_mode = True
+
+        # your “hack zone”
         mod_value = x_tilt * 1.0
 
-    # ✅ Ensure clean CSV line + newline termination
-    line = TEAM_ID + "," + attack_mode + "," + str(mod_value) + "\n"
+        send_payload(attack_mode, mod_value)
 
-    # Send over USB serial
-    uart.write(line)
+    # =========================
+    # NORMAL MODE (Button B)
+    # =========================
+    if b_pressed and not last_b:
+        attack_mode = False
 
-    sleep(200)</code></pre>
+        mod_value = x_tilt
+
+        send_payload(attack_mode, mod_value)
+
+    last_a = a_pressed
+    last_b = b_pressed
+
+    # =========================
+    # BIDIRECTIONAL FEEDBACK
+    # =========================
+    if uart.any():
+        feedback = uart.readline().decode("utf-8", errors="ignore").strip()
+
+        # IMPORTANT FIX: handle True/False robustly
+        if "ai_caught:true" in feedback.lower():
+            display.show(Image.SKULL)
+        else:
+            display.show(Image.YES)
+
+    sleep(50)</code></pre>
             </div>
 
             <div class="challenge-box">
